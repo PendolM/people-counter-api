@@ -9,7 +9,6 @@ class HelloWorld(Resource):
     def get(self):
         return {'hello': 'world'}
 
-
 class HelloWorld2(Resource):
     def get(self):
         return {'hello': 'world2'}
