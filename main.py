@@ -16,7 +16,7 @@ class PeopleCounter(Resource):
         img = cv2.imread('images/dworzec.jpeg')
         boxes, weights = hog.detectMultiScale(img, winStride=(8, 8))
 
-        return{'count': len(boxes)}
+        return {'count': len(boxes)}
 
 
 class PeopleCounterLink(Resource):
@@ -24,10 +24,10 @@ class PeopleCounterLink(Resource):
         resp = requests.get(request.args.get('url'))
         arr = np.asarray(bytearray(resp.content), dtype=np.uint8)
         img = cv2.imdecode(arr, -1)
-        #img = cv2.imread(request.args.get('url'))
+# img = cv2.imread(request.args.get('url'))
         boxes, weights = hog.detectMultiScale(img, winStride=(8, 8))
 
-        return{'count': len(boxes)}
+        return {'count': len(boxes)}
 
 
 class HelloWorld(Resource):
@@ -47,4 +47,3 @@ api.add_resource(HelloWorld2, '/test2')
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
-
