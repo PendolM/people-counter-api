@@ -30,6 +30,19 @@ class PeopleCounterLink(Resource):
         return {'count': len(boxes)}
 
 
+'''
+class PeopleCounterPost(Resource):
+    def post(self):
+        resp = requests.get(request.args.get('url'))
+        arr = np.asarray(bytearray(resp.content), dtype=np.uint8)
+        img = cv2.imdecode(arr, -1)
+# img = cv2.imread(request.args.get('url'))
+        boxes, weights = hog.detectMultiScale(img, winStride=(8, 8))
+
+        return {'count': len(boxes)}
+'''
+
+
 class HelloWorld(Resource):
     def get(self):
         return {'hello': 'world'}
